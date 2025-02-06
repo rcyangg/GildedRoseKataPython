@@ -71,7 +71,7 @@ class GildedRoseTest(unittest.TestCase):
         self.assertEqual(4, backstage_passes_item.sell_in)
         self.assertEqual("Backstage passes", backstage_passes_item.name)
 
-    # Test 6：(checks for syntax errors)
+    # Test 6：(checks for syntax errors): use a function that not yet been created
     def test_gilded_rose_list_items_sell_in_less_than_5(self):
         items = [
             Item("Aged Brie", 3, 10),
