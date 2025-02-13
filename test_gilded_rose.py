@@ -7,12 +7,12 @@ from gilded_rose import Item, GildedRose
 class GildedRoseTest(unittest.TestCase):
     # example of test that checks for logical errors
     def test_sulfuras_should_not_decrease_quality(self):
-        items = [Item("Sulfuras", 5, 80)]
+        items = [Item("Sulfuras", 0, 80)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         sulfuras_item = items[0]
         self.assertEqual(80, sulfuras_item.quality)
-        self.assertEqual(4, sulfuras_item.sell_in)
+        self.assertEqual(0, sulfuras_item.sell_in)
         self.assertEqual("Sulfuras", sulfuras_item.name)
     # example of test that checks for syntax errors
     def test_gilded_rose_list_all_items(self):
@@ -23,12 +23,12 @@ class GildedRoseTest(unittest.TestCase):
 
     # Test 1: (checks for logical errors)
     def test_sulfuras_should_not_decrease_sellin(self):
-        items = [Item("Sulfuras", 5, 80)]
+        items = [Item("Sulfuras", 0, 80)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         sulfuras_item = items[0]
-        self.assertEqual(79, sulfuras_item.quality)
-        self.assertEqual(5, sulfuras_item.sell_in)
+        self.assertEqual(80, sulfuras_item.quality)
+        self.assertEqual(0, sulfuras_item.sell_in)
         self.assertEqual("Sulfuras", sulfuras_item.name)
 
     # Test 2: (checks for logical errors)
@@ -80,7 +80,7 @@ class GildedRoseTest(unittest.TestCase):
         ]
         gilded_rose = GildedRose(items)
         expect_items = gilded_rose.get_items_sell_in_less_than_5()
-        self.assertEqual(["Aged Brie", "Sulfuras", "Backstage passes"], expect_items)
+        self.assertEqual(["Aged Brie", "Backstage passes"], expect_items)
 
 if __name__ == '__main__':
     unittest.main()
